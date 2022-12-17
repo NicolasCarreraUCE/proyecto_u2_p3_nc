@@ -12,23 +12,16 @@
     <nav></nav>
     <section>
         <div id="myApp2">
-            <!-- {{arreglo}}
-            <ul>
-                <li>{{arreglo[0].texto}}</li>
-                <li>{{arreglo[1].texto}}</li>
-                <li>{{arreglo[2].texto}}</li>
-                <li>{{arreglo[3].texto}}</li>
-                <li>{{arreglo[4].texto}}</li>
-                <li>{{arreglo[5].texto}}</li>
-                <li>{{arreglo[6].texto}}</li>
-                <li>{{arreglo[7].texto}}</li>
-            </ul> -->
-
+            <label for="">Frase nueva: {{fraseNueva}}</label>
+            <br>
+            <input type="text" v-model="fraseNueva" v-on:keypress.enter="agregarFraseModificador">
+            <hr>
             <h1>Freses: </h1>
             <ul>
                 <li v-for="({texto,autor}, index) in arreglo">
-                    <span>{{index + 1}} - {{texto}}</span>
-                    <blockquote>{{autor}}</blockquote>
+                    <span>Frese: {{index + 1}} - {{texto}}</span>
+                    <!-- <blockquote v-if="autor !== undefined">Autor: {{autor}}</blockquote> -->
+                    <blockquote v-show="autor !== undefined">Autor: {{autor}}</blockquote>
                 </li>
             </ul>
         </div>
